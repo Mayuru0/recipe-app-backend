@@ -5,7 +5,7 @@ const recipesRoute = express.Router();
 
 recipesRoute.get("/categories", getCategories);
 
-recipesRoute.get("/recipes/:id",authMiddleware, getRecipeDetails);
+recipesRoute.get("/:id",authMiddleware, getRecipeDetails);
 
 recipesRoute.get("/categories/:category",authMiddleware, getRecipesByCategory);
 
