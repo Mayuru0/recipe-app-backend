@@ -16,13 +16,13 @@ export const getFavorites = async (req, res) => {
 
 //add favorite
 export const addFavorite = async (req, res) => {
-   const {idMeal, strMeal, strMealThumb, strCategoryDescription} = req.body;
+   const {idCategory, strCategory, strCategoryThumb, strCategoryDescription} = req.body;
    try{
         const user = req.user;
        if (!user) {
            return res.status(404).json({ message: "User not found" });
        }
-       user.favorites.push({idMeal, strMeal, strMealThumb, strCategoryDescription});
+       user.favorites.push({idCategory, strCategory, strCategoryThumb, strCategoryDescription});
        await user.save();
        res.status(200).json({ message: "Favorite added successfully" });
    } catch (error) {
@@ -33,13 +33,13 @@ export const addFavorite = async (req, res) => {
 
 //delete favorite
 export const deleteFavorite = async (req, res) => {
-   const {idMeal} = req.params;
+   const {idCategory} = req.params;
    try{
-       const user = await User.findById(req.params.UserId);
+        const user = req.user;
        if (!user) {
            return res.status(404).json({ message: "User not found" });
        }
-       user.favorites = user.favorites.filter(favorite => favorite.idMeal !== idMeal);
+       user.favorites = user.favorites.filter(favorite => favorite.idCategory !== idCategory);
        await user.save();
        res.status(200).json({ message: "Favorite deleted successfully" });
    } catch (error) {

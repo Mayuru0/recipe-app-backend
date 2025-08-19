@@ -8,7 +8,7 @@ favoriteRoute.get("/get",authMiddleware,getFavorites );
 
 favoriteRoute.post("/add", authMiddleware,addFavorite );
 
-favoriteRoute.delete("/delete", authMiddleware,deleteFavorite );
+favoriteRoute.delete("/delete/:idCategory", authMiddleware,deleteFavorite );
 
 
 export default favoriteRoute;
