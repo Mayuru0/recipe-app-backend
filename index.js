@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import cors from "cors";
 import errorHandler from './src/middlewares/error.middleware.js';
 import connectDB from './src/config/db.js';
+import userRoute from './src/routes/userRoute.js';
 
 
 
@@ -20,6 +21,10 @@ connectDB();
 app.use(errorHandler);
 
 app.get("/", (req, res) => res.send("Hello World!"));
+
+
+//user route
+app.use("/api/user",userRoute)
 
 
 
