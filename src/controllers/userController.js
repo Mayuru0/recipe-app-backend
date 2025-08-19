@@ -139,10 +139,10 @@ export const updateUser = async (req, res) => {
 //delete user
 
 export const deleteUser = async (req, res) => {
-  const { userId } = req.params;
+  const { UserId } = req.params;
 
   try {
-    const deletedUser = await User.findByIdAndDelete(userId);
+    const deletedUser = await User.findByIdAndDelete(UserId);
 
     if (!deletedUser) {
       return res.status(404).json({

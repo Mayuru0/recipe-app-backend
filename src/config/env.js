@@ -10,5 +10,5 @@ export const BASE_URL = process.env.BASE_URL ;
 export const MONGO_URI = process.env.MONGO_URI;
 export const DATABASE_LOCAL = process.env.DATABASE_LOCAL;
 export const LOCAL_DATABASE = process.env.LOCAL_URLS;
-
+export const THEMEALDB_BASE_URL = process.env.THEMEALDB_BASE_URL;
 
