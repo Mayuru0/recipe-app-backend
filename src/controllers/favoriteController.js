@@ -18,7 +18,7 @@ export const getFavorites = async (req, res) => {
 
 //add favorite
 export const addFavorite = async (req, res) => {
-  const { strMeal, strCategoryThumb, idMeal } = req.body;
+  const { strMeal, strMealThumb, idMeal ,status} = req.body;
   try {
     const user = req.user;
     if (!user) {
@@ -28,6 +28,7 @@ export const addFavorite = async (req, res) => {
     const existingFavorite = await Favorite.findOne({
       user: user._id,
       idMeal,
+
     });
     if (existingFavorite) {
       return res.status(400).json({ message: "Already in favorites" });
@@ -36,8 +37,9 @@ export const addFavorite = async (req, res) => {
     const favorite = new Favorite({
       user: user._id,
       strMeal,
-      strCategoryThumb,
+      strMealThumb,
       idMeal,
+      status,
     });
 
     await favorite.save();
