@@ -38,10 +38,10 @@ jobs:
     - run: pm2 restart recipe_api
     - name: Restart or start app with PM2 process
       run: |
-    if pm2 list | grep -q "recipe_api"; then
-      pm2 restart recipe_api
-    else
-      pm2 start npm --name "recipe_api" -- run start --watch
-    fi
+        if pm2 list | grep -q "recipe_api"; then
+        pm2 restart recipe_api
+        else
+        pm2 start npm --name "recipe_api" -- run start --watch
+        fi
 
 
