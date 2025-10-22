@@ -35,4 +35,4 @@ jobs:
           echo "MONGO_URI=${{ secrets.MONGO_URI }}" >> .env
             echo "PORT=${{ secrets.PORT }}" >> .env
           echo "THEMEALDB_BASE_URL=${{ secrets.THEMEALDB_BASE_URL }}" >> .env
-    
+    - run: pm2 restart recipe_api
